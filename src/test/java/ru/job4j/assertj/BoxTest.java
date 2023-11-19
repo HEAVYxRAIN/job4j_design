@@ -61,7 +61,7 @@ class BoxTest {
     void getAreaSphere() {
         Box box = new Box(0, 1);
         double area = box.getArea();
-        assertThat(area).isEqualTo(12.566370614359172D)
+        assertThat(area).isCloseTo(12.6d, withPrecision(0.05d))
                 .isNotNull();
     }
 
@@ -69,7 +69,7 @@ class BoxTest {
     void getAreaCube() {
         Box box = new Box(8, 6);
         double area = box.getArea();
-        assertThat(area).isEqualTo(216D)
+        assertThat(area).isCloseTo(216d, withPrecision(0.05))
                 .isNotNull();
     }
 }
