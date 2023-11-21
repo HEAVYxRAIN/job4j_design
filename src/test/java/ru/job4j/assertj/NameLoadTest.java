@@ -25,8 +25,8 @@ class NameLoadTest {
         NameLoad nameLoad = new NameLoad();
         assertThatThrownBy(() -> nameLoad.parse("key:value"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("this name: " +
-                        "key:value does not contain the symbol '='");
+                .hasMessageContaining("this name: "
+                        + "key:value does not contain the symbol '='");
     }
 
     @Test
@@ -34,8 +34,8 @@ class NameLoadTest {
         NameLoad nameLoad = new NameLoad();
         assertThatThrownBy(() -> nameLoad.parse("=value"))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("this name: " +
-                        "=value does not contain a key");
+                .hasMessageContaining("this name: "
+                        + "=value does not contain a key");
     }
 
     @Test
@@ -43,7 +43,7 @@ class NameLoadTest {
         NameLoad nameLoad = new NameLoad();
         assertThatThrownBy(() -> nameLoad.parse("key="))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("this name: " +
-                        "key= does not contain a value");
+                .hasMessageContaining("this name: "
+                        + "key= does not contain a value");
     }
 }
