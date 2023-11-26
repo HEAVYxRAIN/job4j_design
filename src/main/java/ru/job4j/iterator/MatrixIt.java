@@ -20,7 +20,7 @@ public class MatrixIt implements Iterator<Integer> {
             row++;
             column = 0;
         }
-        return row < data.length && column < data[row].length;
+        return row < data.length;
     }
 
     @Override
@@ -28,12 +28,6 @@ public class MatrixIt implements Iterator<Integer> {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
-        Integer element = data[row][column];
-        column++;
-        if (column > data[row].length) {
-            row++;
-            column = 0;
-        }
-        return element;
+        return data[row][column++];
     }
 }
