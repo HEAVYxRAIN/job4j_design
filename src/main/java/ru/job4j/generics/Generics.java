@@ -7,10 +7,13 @@ import java.util.List;
 public class Generics {
     public static void main(String[] args) {
         Generics generics = new Generics();
-        List<Animal> first = new ArrayList<>();
+        /*List<Animal> first = new ArrayList<>();*/
+        List<Predator> first = new ArrayList<>();
         List<Predator> second = new ArrayList<>();
-        List<Tiger> third = new ArrayList<>();
-        first.add(new Animal("Monkey", "Bananas", 20));
+        /*List<Tiger> third = new ArrayList<>();*/
+        List<Predator> third = new ArrayList<>();
+        /*first.add(new Animal("Monkey", "Bananas", 20));*/
+        first.add(new Tiger("Monkey", "Bananas", 20));
         second.add(new Predator("Feline", "Meat", 15 - 30));
         third.add(new Tiger("King", "Gazelle", 30));
 
@@ -40,8 +43,8 @@ public class Generics {
 
     /*public void printBoundedWildCard(List<Predator> list) {
         for (Iterator<Predator> iterator = list.iterator(); iterator.hasNext();) {*/
-    public void printBoundedWildCard(List<? extends Animal> list) {
-        for (Iterator<? extends Animal> iterator = list.iterator(); iterator.hasNext();) {
+    public void printBoundedWildCard(List<? extends Predator> list) {
+        for (Iterator<? extends Predator> iterator = list.iterator(); iterator.hasNext();) {
             Object next = iterator.next();
             System.out.println("Текущий элемент: " + next);
         }
@@ -49,8 +52,8 @@ public class Generics {
 
     /*public void printLowerBoundedWildCard(List<Predator> list) {
         for (Iterator<Predator> iterator = list.iterator(); iterator.hasNext();) {*/
-    public void printLowerBoundedWildCard(List<? super Tiger> list) {
-        for (Iterator<? super Tiger> iterator = list.iterator(); iterator.hasNext();) {
+    public void printLowerBoundedWildCard(List<? super Predator> list) {
+        for (Iterator<? super Predator> iterator = list.iterator(); iterator.hasNext();) {
             Object next = iterator.next();
             System.out.println("Текущий элемент: " + next);
         }
