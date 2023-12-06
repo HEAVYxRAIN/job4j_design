@@ -43,7 +43,6 @@ public class SimpleArrayList<T> implements SimpleList<T> {
         if ((size - 1) > index) {
             System.arraycopy(this.container, index + 1,
                     this.container, index, size - index - 1);
-
         }
             container[size - 1] = null;
         --size;
