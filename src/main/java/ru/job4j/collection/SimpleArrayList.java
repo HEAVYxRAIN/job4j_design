@@ -30,8 +30,7 @@ public class SimpleArrayList<T> implements SimpleList<T> {
 
     @Override
     public T set(int index, T newValue) {
-        get(index);
-        T oldValue = container[index];
+        T oldValue = get(index);
         container[index] = newValue;
         modCount++;
         return oldValue;
@@ -52,7 +51,7 @@ public class SimpleArrayList<T> implements SimpleList<T> {
 
     @Override
     public T get(int index) {
-        Objects.checkIndex(index, size);
+        Objects.checkIndex(index, size());
         return container[index];
     }
 
@@ -64,20 +63,20 @@ public class SimpleArrayList<T> implements SimpleList<T> {
     @Override
     public Iterator<T> iterator() {
         return new Iterator<>() {
-            private int expectedModCount = size;
+            private int expectedModCount = modCount;
             private int index = 0;
 
             @Override
             public boolean hasNext() {
-                    if (expectedModCount != size) {
+                    if (expectedModCount != size()) {
                         throw new ConcurrentModificationException();
                     }
-                return index < container.length && container[index] != null;
+                return index < container.length && size() > 0;
             }
 
             @Override
             public T next() {
-                if (!hasNext()) {
+                if (!hasNext() || container[index] == null) {
                     throw new NoSuchElementException();
                 }
                 return container[index++];
