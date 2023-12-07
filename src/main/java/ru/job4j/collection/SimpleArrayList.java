@@ -14,17 +14,17 @@ public class SimpleArrayList<T> implements SimpleList<T> {
 
     @Override
     public void add(T value) {
-        if (container.length == 0) {
-            container = Arrays.copyOf(container, container.length + 1);
-        } else if (size == container.length) {
-            container = grow();
-        }
+        container = grow();
         container[size++] = value;
         modCount++;
     }
 
     public T[] grow() {
-        container = Arrays.copyOf(container, container.length * 2);
+        if (container.length == 0) {
+            container = Arrays.copyOf(container, container.length + 2);
+        } else if (size == container.length) {
+            container = Arrays.copyOf(container, container.length * 2);
+        }
         return container;
     }
 
