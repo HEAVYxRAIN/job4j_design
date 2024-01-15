@@ -6,7 +6,6 @@ import java.util.*;
 import static org.assertj.core.api.Assertions.*;
 
 class NonCollisionMapTest {
-
     private final SimpleMap<Integer, String> map = new NonCollisionMap<>();
 
     @BeforeEach

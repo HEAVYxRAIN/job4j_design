@@ -3,7 +3,6 @@ package ru.job4j.map;
 import java.util.*;
 
 public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
-
     private static final float LOAD_FACTOR = 0.75f;
 
     private int capacity = 8;
