@@ -25,8 +25,8 @@ public class Config {
                     if (keyAndValue.length != 2
                             || keyAndValue[0].isEmpty()
                             || keyAndValue[1].isEmpty()) {
-                        throw new IllegalArgumentException(""
-                                + "Нарушение шаблона key=value");
+                        throw new IllegalArgumentException(
+                                "Нарушение шаблона key=value");
                     }
                     values.put(keyAndValue[0], keyAndValue[1]);
                 }
@@ -39,7 +39,7 @@ public class Config {
 
     public String value(String key) {
         if (!values.containsKey(key)) {
-            throw new NoSuchElementException("Отсутствует ключ " + key);
+            throw new NoSuchElementException("Отсутствует ключ");
         }
         return this.values.get(key);
     }
