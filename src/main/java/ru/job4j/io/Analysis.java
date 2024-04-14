@@ -10,10 +10,11 @@ public class Analysis {
             boolean active = true;
             for (String s : reader.lines().toList()) {
                 if (active && s.startsWith("400") || s.startsWith("500")) {
-                    out.print(s.split(" ")[1].trim() + ";");
+                    out.append(s.split(" ")[1].trim()).append(";");
                     active = false;
                 } else if (!active && s.startsWith("200") || s.startsWith("300")) {
-                    out.print(s.split(" ")[1].trim() + ";" + System.lineSeparator());
+                    out.append(s.split(" ")[1].trim()).append(";")
+                            .append(System.lineSeparator());
                     active = true;
                 }
             }
