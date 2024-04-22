@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -33,7 +34,8 @@ public class Search {
             throw new IllegalArgumentException(
                     "Root folder is null. Usage  ROOT_FOLDER.");
         }
-        if (!args[1].endsWith(".js")) {
+        if (args[1].length() < 2 || !args[1].startsWith(".")
+                || !Character.isLetter(args[1].charAt(1))) {
             throw new IllegalArgumentException(
                     "The file extension is unspecified or incorrect");
         }
